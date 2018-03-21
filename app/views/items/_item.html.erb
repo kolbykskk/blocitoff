@@ -1,6 +1,6 @@
 <% @items.each_with_index do |item, index| %>
   <tr>
-    <td scope="row"><%= index + 1 %></th>
+    <td class="center"><%= link_to "", [@user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %> <%= index + 1 %></td>
     <td><%= item.name %></td>
   </tr>
 <% end %>

@@ -15,6 +15,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+
+    if @item.destroy
+      flash[:notice] = "Item was successfully deleted."
+      redirect_to users_show_path
+    else
+      flash[:alert] = "Item could not be deleted."
+      redirect_to users_show_path
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:name)
