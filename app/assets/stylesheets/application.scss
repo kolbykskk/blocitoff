@@ -16,3 +16,11 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ .navbar-inverse {
+   background-color: #383838;
+ }
+
+ .navbar a {
+   color: white !important;
+ }

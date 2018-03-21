@@ -1,0 +1,6 @@
+<% @items.each_with_index do |item, index| %>
+  <tr>
+    <td scope="row"><%= index + 1 %></th>
+    <td><%= item.name %></td>
+  </tr>
+<% end %>

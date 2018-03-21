@@ -1,2 +1,50 @@
-<h1>Profile - <%= username %></h1>
-<p>Signed in as: <%= @user.email %></p>
+<div class="row">
+  <div class="col">
+    <h1>Profile - <%= username %></h1>
+    <p>Signed in as: <%= @user.email %></p>
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-4">
+
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
+    <div class="new-item">
+      <h4>
+        <span class="glyphicon glyphicon-flash"></span>
+        Add a new item
+      </h4>
+      <div class="form">
+        <%= render partial: '/items/form' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <table class="table">
+      <thead class="table-head">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Item</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render '/items/item' %>
+      </tbody>
+    </table>
+  </div>
+
+</div>

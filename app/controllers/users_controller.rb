@@ -4,5 +4,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @item = Item.new
+    @items = @user.items
+    @hide_alerts = []
   end
 end

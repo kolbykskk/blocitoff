@@ -1,0 +1,7 @@
+<%= form_for [@user, @item] do |f| %>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, placeholder: "Enter item name..." %><br>
+    <%= f.submit %>
+  </div>
+<% end %>
