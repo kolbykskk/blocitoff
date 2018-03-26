@@ -1,7 +1,7 @@
 <%= form_for [@user, @item], remote: true do |f| %>
   <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name, placeholder: "Enter item name..." %><br>
-    <%= f.submit %>
+    <%= f.text_field :name, placeholder: "Enter item name...", class: 'form-control custom-button' %>
+    <%= f.submit 'Create Todo', class: 'btn btn-primary create-item-button form-control custom-button' %>
   </div>
 <% end %>

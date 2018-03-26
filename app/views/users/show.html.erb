@@ -27,7 +27,7 @@
     <div class="new-item">
       <h4>
         <span class="glyphicon glyphicon-flash"></span>
-        Add a new item
+        Add a new todo item
       </h4>
       <div class="form">
         <%= render partial: '/items/form' %>
@@ -36,18 +36,21 @@
   </div>
 
   <div class="col-md-8">
+  <%= form_tag user_item_path(@user), method: :delete, remote: true do %>
     <table class="table">
       <thead class="table-head">
         <tr>
-          <th scope="col" class="center">Completed?</th>
-          <th scope="col">Item</th>
-          <th scope="col">Created at</th>
+          <th scope="col"></th>
+          <th scope="col">Todo</th>
+          <th scope="col" class="text-right">Expiring in</th>
         </tr>
       </thead>
       <tbody>
-        <%= render '/items/item' %>
+        <%= render @items %>
       </tbody>
     </table>
+    <%= submit_tag "Complete Todos", class: 'btn btn-primary btn-block custom-button' %>
+  <% end %>
   </div>
 
 </div>

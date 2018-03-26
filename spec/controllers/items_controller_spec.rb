@@ -44,7 +44,7 @@ RSpec.describe ItemsController, type: :controller do
 
       it "redirects to the users show view" do
         post :create, params: { user_id: user.id, item: { name: FFaker::Lorem.sentence } }
-        expect(response).to redirect_to users_show_path
+        expect(response).to redirect_to user_path(user)
       end
     end
 
@@ -62,7 +62,7 @@ RSpec.describe ItemsController, type: :controller do
 
       it "redirects to the users show view" do
         delete :destroy, params: { user_id: user.id, id: item.id }
-        expect(response).to redirect_to users_show_path
+        expect(response).to redirect_to user_path(user)
       end
     end
   end

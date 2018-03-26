@@ -1,7 +1,9 @@
-<% @items.each_with_index do |item, index| %>
-  <tr>
-    <td class="center"><%= link_to "", [@user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %> <%= index + 1 %></td>
+<tr>
+  <td>
+    <div class="round">
+      <%= check_box_tag "item_ids[]", item.id, nil, id: "checkbox#{item_counter}" %>
+      <label for="checkbox<%= item_counter %>"></label>
+    </div></td>
     <td><%= item.name %></td>
-    <td><%= distance_of_time_in_words(item.created_at, Time.now) %></td>
-  </tr>
-<% end %>
+  <td class="text-right"><%= distance_of_time_in_words(item.created_at, Time.now + 7.days) %></td>
+</tr>

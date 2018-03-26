@@ -11,17 +11,17 @@ RSpec.describe UsersController, type: :controller do
 
     describe "GET #show" do
       it "returns http success" do
-        get :show
+        get :show, params: { id: user.id }
         expect(response).to have_http_status(:success)
       end
 
       it "renders the show view" do
-        get :show
+        get :show, params: { id: user.id }
         expect(response).to render_template(:show)
       end
 
       it "assigns the logged in user to @user" do
-        get :show
+        get :show, params: { id: user.id }
         expect(assigns(:user)).to eq(user)
       end
     end
@@ -30,7 +30,7 @@ RSpec.describe UsersController, type: :controller do
   context "when logged out" do
     describe "GET #show" do
       it "returns http redirect" do
-        get :show
+        get :show, params: { id: user.id }
         expect(response).to redirect_to(new_user_session_path)
       end
     end
