@@ -49,7 +49,7 @@
         <%= render @items %>
       </tbody>
     </table>
-    <%= submit_tag "Complete Todos", class: 'btn btn-primary btn-block custom-button' %>
+    <%= submit_tag "Complete Todos", onclick: "blocmetrics.report('complete todo link clicked')", class: 'btn btn-primary btn-block custom-button' %>
   <% end %>
   </div>
 
